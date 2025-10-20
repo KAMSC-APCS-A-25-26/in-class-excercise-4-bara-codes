@@ -1,7 +1,35 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class GuessingGame {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+        int attempts = 1;
+        int number = rand.nextInt(100) + 1;
+        System.out.print("Welcome to the Guessing Game!\nI'm thinking of a number between 1 and 100.\nEnter your guess: ");
+        int guess = sc.nextInt();
+        do
+        {
+            if (guess < number)
+            {
+                System.out.println("Too low! Try again. ");
+                System.out.print("Enter your guess: ");
+                guess = sc.nextInt();
+            }
+            else if (guess > number)
+            {
+                System.out.println("Too high! Try again. ");
+                System.out.print("Enter your guess: ");
+                guess = sc.nextInt();
+            }
+            attempts += 1;
+        } while (guess != number);
+        System.out.println("You got it! ");
+        System.out.println("Attempts: " + attempts);
+
+
+
         // TODO: Prompt the user with a welcome message
         // TODO: Generate a random secret number between 1 and 100 (inclusive)
         // TODO: Use a do...while loop to read guesses until correct
